@@ -14,7 +14,7 @@ check_wordpress:
   script:
     - apk add --no-cache curl
     - docker compose up -d
-    - sleep 30
+    - sleep 10
     - docker ps | grep wordpress
-    - curl -f http://localhost:8081
+    - docker exec wordpress-docker-lab-wordpress-1 curl -f http://localhost
     - docker compose down

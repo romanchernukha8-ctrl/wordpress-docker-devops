@@ -12,6 +12,7 @@ check_wordpress:
     DOCKER_TLS_CERTDIR: ""
 
   script:
+    - apk add --no-cache curl
     - docker compose up -d
     - sleep 30
     - docker ps | grep wordpress

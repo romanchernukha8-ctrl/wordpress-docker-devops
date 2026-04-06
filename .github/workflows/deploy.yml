@@ -1,0 +1,29 @@
+name: WordPress CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-wordpress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start containers
+        run: |
+          docker compose up -d
+          sleep 20
+
+      - name: Show running containers
+        run: docker ps
+
+      - name: Test WordPress
+        run: |
+          curl -f http://localhost:8081 || exit 1
+
+      - name: Stop containers
+        run: docker compose down

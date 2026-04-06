@@ -1,2 +1,19 @@
+# WordPress 
 wp/
+
+# Environment
 .env
+
+# Uploads 
+wp-content/uploads
+
+# Backup files
+*.sql
+*.tar.gz
+
+# OS / editor
+.DS_Store
+*.log
+
+# Docker
+db_data
